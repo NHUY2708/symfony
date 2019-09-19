@@ -23,20 +23,19 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Name</th>
-                <th scope="col">Action</th>
+                <th scope="col">Quanyity</th>
+                <th scope="col">Price</th>
             </tr>
             </thead>
             <tbody>
-            {% if products|length > 0 %}
-
-            {% for product in products %}
                 <tr>
                     <td scope="row">{{ product.id}}</td>
                     <td>{{ product.name}}</td>
-                    <td><a class="btn btn-info" href="san-pham/{{product.id}}" >chi tiết</a></td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}</td>
+            
                 </tr>
-            {% endfor %}
-            {% endif %}
+        
             </tbody>
         </table>
     </div>

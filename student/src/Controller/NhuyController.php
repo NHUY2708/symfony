@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NhuyController extends AbstractController
 {
     /**
-     * @Route("/nhuy", name="nhuy")
+     * @Route("/them-san-pham", name="nhuy")
      */
     public function index(Request $request)
     {
@@ -20,12 +20,13 @@ class NhuyController extends AbstractController
         $form = $this->createForm(ProductForm::class, $Product);
         $form->handleRequest($request);
  
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
  
             $Product = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($Product);
             $em->flush();
+            alert("Thêm sản phẩm thành công");
             return $this->redirectToRoute('nhuy');
         }
         return $this->render('nhuy/index.html.twig', [

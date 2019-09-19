@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product", name="product")
+     * @Route("/san-pham", name="product")
      */
     public function index()
     {
@@ -17,6 +17,16 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'controller_name' => 'ProductController',
             'products' => $products,
+        ]);
+    }
+    /**
+     * @Route("/san-pham/{id}", name="detail", methods={"GET","HEAD"})
+     */
+    public function detail(int $id){
+        $repository = $this->getDoctrine()->getRepository(Product::class);
+        $product = $repository->find($id);
+        return $this->render('product/detail.html.twig', [
+            'product' => $product,
         ]);
     }
 }

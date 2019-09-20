@@ -15,19 +15,19 @@ class NhuyController extends AbstractController
      */
     public function index(Request $request)
     {
-        $Product = new Product();
+        $product = new Product();
 
-        $form = $this->createForm(ProductForm::class, $Product);
+        $form = $this->createForm(ProductForm::class, $product);
         $form->handleRequest($request);
- 
+
         if ($form->isSubmitted()) {
- 
-            $Product = $form->getData();
+
+            $product = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($Product);
+            $em->persist($product);
             $em->flush();
             alert("Thêm sản phẩm thành công");
-            return $this->redirectToRoute('nhuy');
+
         }
         return $this->render('nhuy/index.html.twig', [
             'controller_name' => 'NhuyController',

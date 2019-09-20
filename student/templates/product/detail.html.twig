@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-9"></div>
         <div class="col-3">
-            <a class="btn btn-info" href="/them-san-pham">Thêm sản phẩm</a>
+            <a class="btn btn-info" href="them-san-pham">Thêm sản phẩm</a>
         </div>
     </div>
     </br><div class="row">
@@ -25,15 +25,17 @@
                 <th scope="col">Name</th>
                 <th scope="col">Quanyity</th>
                 <th scope="col">Price</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">{{ product.id}}</td>
-                    <td>{{ product.name}}</td>
-                    <td>{{ product.quantity }}</td>
-                    <td>{{ product.price }}</td>
-            
+            <tr>
+                <td scope="row">{{ product.id}}</td>
+                <td>{{ product.name}}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.price }}</td>
+                <td><button class="btn btn-info"><i class="fa fa-edit"></i></button></td>
+                <td><button class="btn btn-info"><i class="fa fa-close"></i></button></td>
                 </tr>
         
             </tbody>
@@ -43,6 +45,7 @@
 {% endblock %}
 
 {% block javascripts %}
+
 {#    <script>#}
 {#       localStorage.setItem('aa',{{ nhuy }});#}
 {#    </script>#}
